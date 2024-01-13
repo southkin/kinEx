@@ -6,3 +6,8 @@
 //
 
 import Foundation
+public extension Dictionary where Key == String, Value == Any {
+    func toJSONData() -> Data? {
+        return try? JSONSerialization.data(withJSONObject: self, options: [])
+    }
+}
