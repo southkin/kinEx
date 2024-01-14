@@ -6,7 +6,7 @@
 //
 
 import Foundation
-extension Date {
+public extension Date {
     var string:String {
         stringValue(format: "yyyy-MM-dd HH:mm:ss")
     }
