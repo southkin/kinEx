@@ -7,8 +7,25 @@
 
 import Foundation
 
-
+public extension Int {
+    var string:String {
+        "\(self)"
+    }
+}
+public extension Float {
+    var string:String {
+        "\(self)"
+    }
+}
+public extension Double {
+    var string:String {
+        "\(self)"
+    }
+}
 public extension String {
+    var string:String {
+        self
+    }
     func urlEncode(_ chars:CharacterSet = .urlQueryAllowed) -> String? {
         self.addingPercentEncoding(withAllowedCharacters: chars)
     }

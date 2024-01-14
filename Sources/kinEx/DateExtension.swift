@@ -7,6 +7,9 @@
 
 import Foundation
 extension Date {
+    var string:String {
+        stringValue(format: "yyyy-MM-dd HH:mm:ss")
+    }
     func stringValue(format:String) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale.current
