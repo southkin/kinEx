@@ -14,9 +14,18 @@ let package = Package(
             name: "kinEx",
             targets: ["kinEx"]
         ),
+        .library(
+            name: "kinExSwiftUI",
+            targets: ["kinExSwiftUI"]
+        ),
+        .library(
+            name: "kinExUIKit",
+            targets: ["kinExUIKit"]
+        ),
     ],
     dependencies: [
-        .package(url: "https://github.com/devxoul/Then", from: .init(3, 0, 0))
+        .package(url: "https://github.com/devxoul/Then", from: .init(3, 0, 0)),
+        .package(url: "https://github.com/southkin/RedLine", from: .init(1, 0, 0))
     ],
     targets: [
         .target(
@@ -35,7 +44,8 @@ let package = Package(
         .target(
             name: "kinExUIKit",
             dependencies: [
-                "Then"
+                "Then",
+                "RedLine"
             ],
             path: "Sources/UIKit"
         ),

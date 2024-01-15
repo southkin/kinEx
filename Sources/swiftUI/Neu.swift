@@ -60,7 +60,7 @@ public extension View {
 public extension Image {
     func neu(style: NeuModifier.NeuStyle, foregroundColor:Color, lightColor:Color = .white.opacity(0.8), shadowColor:Color = .black.opacity(0.7), depth: CGFloat = 1.5) -> Image {
         
-        if #available(macOS 12, *) {
+        if #available(iOS 15, macOS 12, *) {
             return self.renderingMode(.template)
                 .foregroundStyle(foregroundColor)
                 .neu(style: style,lightColor: lightColor,shadowColor: shadowColor,depth: depth) as! Image

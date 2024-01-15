@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "redline",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/southkin/RedLine",
+      "state" : {
+        "revision" : "d51c113158cb056df23f047f09e5958a354aa3ea",
+        "version" : "1.0.3"
+      }
+    },
+    {
       "identity" : "then",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/devxoul/Then",
