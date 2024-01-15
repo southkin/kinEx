@@ -9,24 +9,8 @@ import SwiftUI
 public struct MDText: View {
     var text:String
     public var body: some View {
-        
-        if #available(macOS 12, iOS 15, *) {
-            if let attributedString = try? AttributedString(markdown: text, options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace)) {
-                Text(attributedString)
-                    .lineLimit(nil)
-                    .multilineTextAlignment(.leading)
-            }
-            else {
-                Text(text)
-                    .lineLimit(nil)
-                    .multilineTextAlignment(.leading)
-            }
-        } else {
-            Text(text)
-                .lineLimit(nil)
-                .multilineTextAlignment(.leading)
-        }
-        
+        let t:LocalizedStringKey = .init(text)
+        return Text(t)
     }
     public init(_ text: String) {
         self.text = text
@@ -34,5 +18,22 @@ public struct MDText: View {
 }
 
 #Preview {
-    MDText("test **test**")
+    MDText("""
+test    **link**[apple](https://apple.com)
+# ㄹㄷㅈㄹ
+ㄹㄷㅈ러ㅐㅑㅓ
+```
+**fef**
+```
+- ㅁㄴㅇㄹ
+    - asdf
+        - 1rf
+    - asdf
+1. ㅈㄷㄹ
+1. ㄹㅁㅈㄷㄹ
+1. ㅅㄷㄴㅅ
+>ㄹㅈㄷㄹ
+>렂댜ㅐㄹ
+>럳재ㅑㄹ
+""").multilineTextAlignment(.leading)
 }
