@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-extension Color {
+public extension Color {
     static var systemBackgroundColor:Color {
 #if os(iOS)
         if #available(iOS 15, *) {
