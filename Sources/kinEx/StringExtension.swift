@@ -29,7 +29,7 @@ public extension String {
     func urlEncode(_ chars:CharacterSet = .urlQueryAllowed) -> String? {
         self.addingPercentEncoding(withAllowedCharacters: chars)
     }
-    public var dict:[String:Any]? {
+    var dict:[String:Any]? {
         makeJsonObj()
     }
     func makeJsonObj<T>() -> T? {
