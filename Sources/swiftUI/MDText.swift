@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-struct MDText: View {
+public struct MDText: View {
     var text:String
-    var body: some View {
+    public var body: some View {
         
         if #available(macOS 12, iOS 15, *) {
             if let attributedString = try? AttributedString(markdown: text, options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace)) {
@@ -28,7 +28,7 @@ struct MDText: View {
         }
         
     }
-    init(_ text: String) {
+    public init(_ text: String) {
         self.text = text
     }
 }
