@@ -17,7 +17,12 @@ public extension Color {
             Color(UIColor.systemBackground)
         }
 #elseif os(macOS)
-        Color(nsColor: NSColor.windowBackgroundColor)
+        if #available(macOS 12, *) {
+            Color(nsColor: NSColor.windowBackgroundColor)
+        }
+        else {
+            Color(NSColor.windowBackgroundColor)
+        }
 #endif
     }
 }
