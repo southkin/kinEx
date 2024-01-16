@@ -21,8 +21,8 @@ public extension Dictionary where Key == String, Value == Any {
                 markdownString += "\(indent)- *\(key)*:\n" + convertToMarkdown(from: subDictionary, indentLevel: indentLevel + 1)
             } else if let array = value as? [Any] {
                 markdownString += "\(indent)- *\(key)*:\n"
-                for item in array {
-                    markdownString += "\(indent)  1. \(item)\n"
+                for item in array.enumerated() {
+                    markdownString += "\(indent)  \(item.offset). \(item.element)\n"
                 }
             } else {
                 markdownString += "\(indent)- **\(key)**: `\(value)`\n"
