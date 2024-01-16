@@ -22,7 +22,7 @@ public extension Dictionary where Key == String, Value == Any {
             } else if let array = value as? [Any] {
                 markdownString += "\(indent)- *\(key)*:\n"
                 for item in array.enumerated() {
-                    markdownString += "\(indent)  \(item.offset). \(item.element)\n"
+                    markdownString += "\(indent)  \(item.offset+1). \(item.element)\n"
                 }
             } else {
                 markdownString += "\(indent)- **\(key)**: `\(value)`\n"
