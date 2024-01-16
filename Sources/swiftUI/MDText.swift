@@ -21,7 +21,10 @@ public struct MDText: View {
     MDText("""
 test    **link**[apple](https://apple.com)
 # ㄹㄷㅈㄹ
-ㄹㄷㅈ러ㅐㅑㅓ
+abcdefg
+*abcdefg*
+***abcdefg***
+ㄹㄷㅈ*러ㅐㅑ*ㅓ
 ```
 **fef**
 ```
