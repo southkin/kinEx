@@ -24,28 +24,28 @@ public struct NeuModifier: ViewModifier {
             return AnyView(content
                 .maskedShadow(type: .outer,
                               color: lightColor,
-                              radius: abs(d)*1.2,
-                              x: -d*0.8,
-                              y:-d*0.8)
+                              radius: abs(d)*0.9,
+                              x: -d,
+                              y:-d)
                     .maskedShadow(type: .outer,
                                   color: shadowColor,
-                                  radius: abs(d)*1.2,
-                                  x: d*0.8,
-                                  y: d*0.8)
+                                  radius: abs(d)*0.9,
+                                  x: d,
+                                  y: d)
             )
         case .neuPressed:
             return AnyView(content
                 .maskedShadow(type: .inner,
                               color: lightColor,
-                              radius: abs(d)*1.2,
-                              x: d*0.8,
-                              y: d*0.8)
+                              radius: abs(d)*0.9,
+                              x: d*1,
+                              y: d*1)
             )
         case .reflectedLight:
             return AnyView( content
                 .maskedShadow(type: .reflectLight,
                               color: lightColor,
-                              radius: abs(d)*1.2)
+                              radius: abs(d))
             )
         }
     }
