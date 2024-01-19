@@ -55,12 +55,12 @@ public struct NeuModifier: ViewModifier {
 
 
 public extension View {
-    func neu(style: NeuModifier.NeuStyle, lightColor:Color = .white.opacity(0.8), shadowColor:Color = .black.opacity(0.7), depth: CGFloat = 1.5) -> some View {
+    func neu(style: NeuModifier.NeuStyle, lightColor:Color = .white.opacity(0.8), shadowColor:Color = .black.opacity(0.7), depth: CGFloat = 1.5, radiusRatio:CGFloat = 1, offsetRatio:CGFloat = 1) -> some View {
         self.modifier(NeuModifier(lightColor: lightColor, shadowColor: shadowColor, depth: depth, style: style))
     }
 }
 public extension Image {
-    func neu(style: NeuModifier.NeuStyle, foregroundColor:Color, lightColor:Color = .white.opacity(0.8), shadowColor:Color = .black.opacity(0.7), depth: CGFloat = 1.5) -> Image {
+    func neu(style: NeuModifier.NeuStyle, foregroundColor:Color, lightColor:Color = .white.opacity(0.8), shadowColor:Color = .black.opacity(0.7), depth: CGFloat = 1.5, radiusRatio:CGFloat = 1, offsetRatio:CGFloat = 1) -> Image {
         
         if #available(iOS 15, macOS 12, *) {
             return self.renderingMode(.template)
