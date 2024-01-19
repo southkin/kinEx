@@ -16,8 +16,8 @@ public struct NeuModifier: ViewModifier {
     var shadowColor:Color
     var depth: CGFloat
     var style: NeuStyle
-    var radiusRatio:CGFloat = 1
-    var offsetRatio:CGFloat = 1
+    var radiusRatio:CGFloat
+    var offsetRatio:CGFloat
 
     public func body(content: Content) -> some View {
         let d = max(-3,min(3,depth))
@@ -56,7 +56,7 @@ public struct NeuModifier: ViewModifier {
 
 public extension View {
     func neu(style: NeuModifier.NeuStyle, lightColor:Color = .white.opacity(0.8), shadowColor:Color = .black.opacity(0.7), depth: CGFloat = 1.5, radiusRatio:CGFloat = 1, offsetRatio:CGFloat = 1) -> some View {
-        self.modifier(NeuModifier(lightColor: lightColor, shadowColor: shadowColor, depth: depth, style: style))
+        self.modifier(NeuModifier(lightColor: lightColor, shadowColor: shadowColor, depth: depth, style: style, radiusRatio: radiusRatio, offsetRatio: offsetRatio))
     }
 }
 public extension Image {
@@ -65,11 +65,11 @@ public extension Image {
         if #available(iOS 15, macOS 12, *) {
             return self.renderingMode(.template)
                 .foregroundStyle(foregroundColor)
-                .neu(style: style,lightColor: lightColor,shadowColor: shadowColor,depth: depth) as! Image
+                .neu(style: style,lightColor: lightColor,shadowColor: shadowColor,depth: depth,radiusRatio: radiusRatio, offsetRatio: offsetRatio) as! Image
         } else {
             return self.renderingMode(.template)
                 .foregroundColor(foregroundColor)
-                .neu(style: style,lightColor: lightColor,shadowColor: shadowColor,depth: depth) as! Image
+                .neu(style: style,lightColor: lightColor,shadowColor: shadowColor,depth: depth,radiusRatio: radiusRatio, offsetRatio: offsetRatio) as! Image
         }
             
     }
