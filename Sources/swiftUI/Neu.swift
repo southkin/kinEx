@@ -16,6 +16,8 @@ public struct NeuModifier: ViewModifier {
     var shadowColor:Color
     var depth: CGFloat
     var style: NeuStyle
+    var radiusRatio:CGFloat = 1
+    var offsetRatio:CGFloat = 1
 
     public func body(content: Content) -> some View {
         let d = max(-3,min(3,depth))
@@ -24,22 +26,22 @@ public struct NeuModifier: ViewModifier {
             return AnyView(content
                 .maskedShadow(type: .outer,
                               color: lightColor,
-                              radius: abs(d)*0.9,
-                              x: -d,
-                              y:-d)
+                              radius: abs(d)*radiusRatio,
+                              x: -d*offsetRatio,
+                              y:-d*offsetRatio)
                     .maskedShadow(type: .outer,
                                   color: shadowColor,
-                                  radius: abs(d)*0.9,
-                                  x: d,
-                                  y: d)
+                                  radius: abs(d)*radiusRatio,
+                                  x: d*offsetRatio,
+                                  y: d*offsetRatio)
             )
         case .neuPressed:
             return AnyView(content
                 .maskedShadow(type: .inner,
                               color: lightColor,
-                              radius: abs(d)*0.9,
-                              x: d*1,
-                              y: d*1)
+                              radius: abs(d)*radiusRatio,
+                              x: d*offsetRatio,
+                              y: d*offsetRatio)
             )
         case .reflectedLight:
             return AnyView( content
